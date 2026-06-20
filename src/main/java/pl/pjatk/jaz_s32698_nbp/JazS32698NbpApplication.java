@@ -1,4 +1,4 @@
-package pl.pjatk.jazs32698nbp;
+package pl.pjatk.jaz_s32698_nbp;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
