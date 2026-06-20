@@ -1,6 +1,7 @@
 package pl.pjatk.jaz_s32698_nbp.model;
 
 import jakarta.persistence.*;
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
@@ -17,7 +18,7 @@ public class NbpLogRecord {
 
     private LocalDate endDate;
 
-    private double calculatedRate;
+    private BigDecimal calculatedRate;
 
     private LocalDate queryDate;
 
@@ -25,7 +26,7 @@ public class NbpLogRecord {
 
     public NbpLogRecord() {}
 
-    public NbpLogRecord(String currency, LocalDate startDate, LocalDate endDate, double calculatedRate, LocalDate queryDate, LocalTime queryTime) {
+    public NbpLogRecord(String currency, LocalDate startDate, LocalDate endDate, BigDecimal calculatedRate, LocalDate queryDate, LocalTime queryTime) {
         this.currency = currency;
         this.startDate = startDate;
         this.endDate = endDate;
@@ -42,8 +43,8 @@ public class NbpLogRecord {
     public void setStartDate(LocalDate startDate) { this.startDate = startDate; }
     public LocalDate getEndDate() { return endDate; }
     public void setEndDate(LocalDate endDate) { this.endDate = endDate; }
-    public double getCalculatedRate() { return calculatedRate; }
-    public void setCalculatedRate(double calculatedRate) { this.calculatedRate = calculatedRate; }
+    public BigDecimal getCalculatedRate() { return calculatedRate; }
+    public void setCalculatedRate(BigDecimal calculatedRate) { this.calculatedRate = calculatedRate; }
     public LocalDate getQueryDate() { return queryDate; }
     public void setQueryDate(LocalDate queryDate) { this.queryDate = queryDate; }
     public LocalTime getQueryTime() { return queryTime; }

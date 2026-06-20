@@ -12,6 +12,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import pl.pjatk.jaz_s32698_nbp.service.CurrencyService;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 
 @RestController
@@ -33,7 +34,7 @@ public class CurrencyController {
             @ApiResponse(
                     responseCode = "200",
                     description = "Pomyślnie obliczono średni kurs i zalogowano operację w bazie H2",
-                    content = @Content(mediaType = "application/json", schema = @Schema(implementation = Double.class, example = "4.0253"))
+                    content = @Content(mediaType = "application/json", schema = @Schema(implementation = BigDecimal.class, example = "4.0253"))
             ),
             @ApiResponse(
                     responseCode = "400",
@@ -47,7 +48,7 @@ public class CurrencyController {
             )
     })
     @GetMapping("/{currency}")
-    public ResponseEntity<Double> getAverageRate(
+    public ResponseEntity<BigDecimal> getAverageRate(
             @Parameter(
                     name = "currency",
                     description = "Trzyliterowy kod waluty zgodny ze standardem ISO 4217",
@@ -72,7 +73,7 @@ public class CurrencyController {
             )
             @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate endDate) {
 
-        double avgRate = currencyService.calculateAverageRate(currency, startDate, endDate);
+        BigDecimal avgRate = currencyService.calculateAverageRate(currency, startDate, endDate);
         return ResponseEntity.ok(avgRate);
     }
 }
